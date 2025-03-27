@@ -68,7 +68,7 @@
                             class="block py-2 px-3 text-gray-900 rounded-md md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:text-white">Skill</a>
                     </li>
 
-                    <a href="{{ asset('storage/CV_ACHMAD_FAIRUZ.pdf') }}" target="_blank"
+                    <a href="{{ asset('CV_ACHMAD_FAIRUZ.pdf') }}" target="_blank"
                         class="w-full max-w-full md:w-auto text-center text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 rounded-md py-2 px-6">
                         Download CV
                     </a>
