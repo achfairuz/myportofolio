@@ -34,7 +34,7 @@ class linkController extends Controller
 
         ]);
 
-        Link::create([
+        link::create([
             'title' => $validatedData['title'],
             'link' => $validatedData['link'],
             'image' => $validatedData['image'],
