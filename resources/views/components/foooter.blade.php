@@ -28,10 +28,7 @@
          <div class="containe-contact">
              <h1 class="text-xl font-semibold mb-4">Contact Info</h1>
              <div class="text-content space-y-2">
-                 <h2 class="opacity-80"><a href="http://wa.me/6285161853202" class="hover:underline text-blue-500"
-                         target="_blank">+62
-                         85161853202</a>
-                 </h2>
+
                  <h2 class="opacity-80">
                      <a href="mailto:fairf717@gmail.com" class="hover:underline text-blue-500" target="_blank">
                          fairf717@gmail.com
