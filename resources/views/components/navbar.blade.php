@@ -16,6 +16,7 @@
             background-color: #3A3E4F;
         }
     </style>
+
 </head>
 
 <body class="bg-gray-100">

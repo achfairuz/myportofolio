@@ -14,6 +14,8 @@ class link extends Model
         'image',
         'link',
         'title',
-        'category'
+        'category',
+        'description',
+        'slug',
     ];
 }

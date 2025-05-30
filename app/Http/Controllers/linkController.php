@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\link;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class linkController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function show_detail($slug)
     {
-        //
+        $data = link::where('slug', $slug)->firstOrFail();
+        if (!$data) {
+            return redirect()->route(404)->with('error', 'Data tidak ditemukan!');
+        }
+        return view('detail_porto', ['data' => $data]);
     }
 
     /**
@@ -31,14 +36,18 @@ class linkController extends Controller
             'link' => 'required|string',
             'image' => 'required|string|max:255',
             'category' => 'required|string|max:255',
-
+            'description' => 'nullable|string',
         ]);
+
+        $slug = Str::slug($request->input('title'));
 
         link::create([
             'title' => $validatedData['title'],
             'link' => $validatedData['link'],
             'image' => $validatedData['image'],
             'category' => $validatedData['category'],
+            'description' => $validatedData['description'] ?? null,
+            'slug' => $slug,
 
         ]);
 
@@ -71,7 +80,11 @@ class linkController extends Controller
             'link' => 'required|string',
             'image' => 'required|string|max:255',
             'category' => 'required|string|max:255',
+            'description' => 'nullable|string',
         ]);
+
+        $slug = Str::slug($request->input('title'));
+        $request->merge(['slug' => $slug]);
 
 
         $data = link::findOrFail($id);
@@ -79,6 +92,8 @@ class linkController extends Controller
         $data->image = $request->input(key: 'image');
         $data->link = $request->input('link');
         $data->category = $request->input('category');
+        $data->description = $request->input('description', null);
+        $data->slug = $slug;
 
         $data->save();
 

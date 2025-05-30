@@ -11,6 +11,7 @@
 
     <link rel="icon" type="image/x-icon" href="{{ asset('iyuz.png') }}">
     @vite('resources/css/app.css')
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         .color-primary {
@@ -45,11 +46,10 @@
                         <tr class="font-medium opacity-70 text-center">
                             <th class="p-4 text-left w-16">NO</th>
                             <th class="p-4 text-left w-1/4">Title</th>
+                            <th class="p-4 text-left w-1/4">Description</th>
                             <th class="p-4 text-left w-1/4">Category</th>
-
                             <th class="p-4 text-left w-1/4">Image</th>
                             <th class="p-4 text-left w-1/4">Link</th>
-
                             <th class="p-4 text-center w-32">Action</th>
                         </tr>
                     </thead>
@@ -67,6 +67,9 @@
                                     <td class="p-4 text-center">{{ $no++ }}</td>
                                     <td class="p-4 max-w-md break-words">
                                         <p>{{ $dataporto->title }}</p>
+                                    </td>
+                                    <td class="p-4 max-w-md break-words">
+                                        <p>{{ $dataporto->description ?? '-' }}</p>
                                     </td>
                                     <td class="p-4 max-w-md">{{ $dataporto->category }}</td>
 

@@ -1,8 +1,9 @@
 @props(['project'])
+<a href="{{ route('project.show', $project->slug) }}"
+    class="block h-full hover:scale-105 transition-transform duration-300">
+    <div class="shadow-lg flex flex-col justify-between items-center p-4 w-full max-w-72 md:max-w-xs bg-white rounded-lg h-full border border-gray-200"
+        x-data>
 
-<a href="{{ $project->link }}" class="block h-full" target="_blank">
-    <div
-        class="shadow-lg flex flex-col justify-between items-center p-4 w-full max-w-72 md:max-w-xs bg-white rounded-lg h-full border border-gray-200">
         <!-- Gambar -->
         <img src="{{ $project->image }}" alt="{{ $project->title }}" class="w-40 md:w-48 h-auto rounded-md object-cover"
             draggable="false">
@@ -13,13 +14,10 @@
                 {{ Str::words($project->title, 6, '...') }}
             </h1>
 
-            <!-- "Github.com" atau "Dribbble.com" tetap di bawah -->
-            <span class="text-sm font-light text-blue-600 hover:underline mt-auto">
-                @if ($project->category == 'Web Development' || $project->category == 'API')
-                    Github.com
-                @elseif ($project->category == 'UI/UX Design')
-                    Dribbble.com
-                @endif
+            <!-- Link Kedua (dalam card, tapi tidak nested <a>) -->
+            <span class="text-sm font-light text-blue-600 hover:underline mt-auto cursor-pointer"
+                @click.stop="window.open('{{ $project->link }}', '_blank')">
+                {{ parse_url($project->link, PHP_URL_HOST) }}
             </span>
         </div>
     </div>

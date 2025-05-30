@@ -347,20 +347,33 @@
             <div x-data="{ activeTab: 'UI/UX' }" class="mt-6">
                 <!-- Tombol Tab -->
                 <div class="flex flex-wrap justify-center gap-2 md:gap-4">
-                    <button @click="activeTab = 'UI/UX'" :class="{ 'bg-black text-white': activeTab === 'UI/UX' }"
-                        class="px-4 py-2 border rounded-md w-full md:w-auto text-center">
+                    <button @click="activeTab = 'UI/UX'"
+                        :class="{
+                            'bg-black text-white': activeTab === 'UI/UX',
+                            'hover:bg-gray-200': activeTab !== 'UI/UX'
+                        }"
+                        class="px-4 py-2 border rounded-md w-full md:w-auto text-center transition">
                         UI/UX
                     </button>
 
-                    <button @click="activeTab = 'WEB'" :class="{ 'bg-black text-white': activeTab === 'WEB' }"
-                        class="px-4 py-2 border rounded-md w-full md:w-auto text-center">
+                    <button @click="activeTab = 'WEB'"
+                        :class="{
+                            'bg-black text-white': activeTab === 'WEB',
+                            'hover:bg-gray-200': activeTab !== 'WEB'
+                        }"
+                        class="px-4 py-2 border rounded-md w-full md:w-auto text-center transition">
                         WEB
                     </button>
 
-                    <button @click="activeTab = 'API'" :class="{ 'bg-black text-white': activeTab === 'API' }"
-                        class="px-4 py-2 border rounded-md w-full md:w-auto text-center">
+                    <button @click="activeTab = 'API'"
+                        :class="{
+                            'bg-black text-white': activeTab === 'API',
+                            'hover:bg-gray-200': activeTab !== 'API'
+                        }"
+                        class="px-4 py-2 border rounded-md w-full md:w-auto text-center transition">
                         API
                     </button>
+
                 </div>
 
                 <!-- Konten UI/UX -->
@@ -429,6 +442,9 @@
                 'alt' => 'MySql',
             ],
             ['src' => 'flutter5786.png', 'alt' => 'Flutter'],
+            ['src' => 'logo_nodejs.png', 'alt' => 'Node Js'],
+            ['src' => 'logo_fastapi.png', 'alt' => 'Fast API'],
+            ['src' => 'logo_figma.png', 'alt' => 'Figma'],
         ];
     @endphp
 
@@ -445,9 +461,10 @@
 
                 @foreach ($skills as $skill)
                     <div class="content flex flex-row items-center space-x-4 w-full max-w-sm p-4 ">
-                        <div class="w-16 h-16 flex justify-center items-center bg-white rounded-full shadow-md">
+                        <div
+                            class="w-16 h-16 flex justify-center items-center bg-white rounded-full shadow-md hover:scale-105 transition-transform duration-300">
                             <img src="{{ asset($skill['src']) }}" alt="{{ $skill['alt'] }}"
-                                class="w-10 h-10  object-cover">
+                                class="w-10 h-10  object-cover ">
                         </div>
                         <h1 class="font-semibold text-2xl md:text-3xl">{{ $skill['alt'] }}</h1>
                     </div>

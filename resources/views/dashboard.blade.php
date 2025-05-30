@@ -29,19 +29,19 @@
                     <thead class="border-b ">
                         <tr class="font-medium opacity-70 text-center">
                             <th class="p-4 text-left w-16">NO</th>
+                            <th class="p-4 text-left w-1/4">Slug</th>
                             <th class="p-4 text-left w-1/4">Title</th>
+                            <th class="p-4 text-left w-1/4">Description</th>
                             <th class="p-4 text-left w-1/4">Category</th>
-
                             <th class="p-4 text-left w-1/4">Image</th>
                             <th class="p-4 text-left w-1/4">Link</th>
-
                             <th class="p-4 text-center w-32">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if ($data->isEmpty())
                             <tr>
-                                <td colspan="5" class="text-center p-6 text-gray-400 font-medium">
+                                <td colspan="8" class="text-center p-6 text-gray-400 font-medium">
                                     Data Tidak Tersedia. Silahkan Insert Data Terlebih Dahulu!
                                 </td>
                             </tr>
@@ -51,7 +51,13 @@
                                 <tr class="border-b">
                                     <td class="p-4 text-center">{{ $no++ }}</td>
                                     <td class="p-4 max-w-md break-words">
+                                        <p>{{ $dataporto->slug ?? '-' }}</p>
+                                    </td>
+                                    <td class="p-4 max-w-md break-words">
                                         <p>{{ $dataporto->title }}</p>
+                                    </td>
+                                    <td class="p-4 max-w-md break-words">
+                                        <p>{{ Str::limit($dataporto->description, 50, '...') ?? '-' }}</p>
                                     </td>
                                     <td class="p-4 max-w-md">{{ $dataporto->category }}</td>
 
@@ -59,7 +65,7 @@
                                     <!-- Gambar Portofolio -->
                                     <td class="p-4">
                                         <img src="{{ $dataporto->image }}" alt="gambar"
-                                            class="max-w-sm w-40 rounded-lg" draggable="false">
+                                            class="max-w-sm w-40 rounded-lg" draggable="true">
                                     </td>
 
                                     <!-- Link Portofolio -->

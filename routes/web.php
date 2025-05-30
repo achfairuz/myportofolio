@@ -50,4 +50,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::get('/project/{slug}', [linkController::class, 'show_detail'])->name('project.show');
+
 require __DIR__ . '/auth.php';

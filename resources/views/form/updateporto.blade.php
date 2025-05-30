@@ -8,6 +8,8 @@
 
     <link rel="icon" type="image/x-icon" href="{{ asset('iyuz.png') }}">
     @vite('resources/css/app.css')
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         .color-primary {
@@ -35,6 +37,11 @@
                         required value="{{ $data->title }}">
                 </div>
 
+                <div class="mb-3">
+                    <label for="description" class="block mb-1 font-medium">Description:</label>
+                    <textarea name="description" id="description" rows="4" class="w-full p-2 border border-gray-300 rounded-md"
+                        placeholder="Masukkan deskripsi portofolio" required>{{ $data->description }}</textarea>
+                </div>
                 <div class="mb-3">
                     <label for="image" class="block mb-1 font-medium">Image (URL):</label>
                     <input type="text" name="image" id="image"
